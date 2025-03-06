@@ -1,1 +1,8 @@
+git init (in project folder)
 git add .
+git commit -m "MESSAGE"
+
+
+git remote add origin <repository-url>
+git branch -M main
+git push -u origin main
