@@ -1,0 +1,19 @@
+from asteval import Interpreter
+import asteval as ast
+
+from asteval import Interpreter
+
+# Custom symbol table with `^` acting as exponentiation
+symbol_table = {'^': lambda x, y: x ** y}
+
+# Create an Interpreter with the custom symbol table
+aeval = Interpreter(symtable=symbol_table)
+
+# Replace `^` with `**` in the input string
+expression = "2^4".replace('^', '**')
+
+# Evaluate the modified expression
+result = aeval(expression)
+print(result)  # Output: 16
+
+print(aeval("4+4"))
