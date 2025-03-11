@@ -4,7 +4,8 @@ import pyautogui
 import re
 from pynput.keyboard import Controller, Key
 keyboard = Controller()
-from SigFigs import SigFigs
+from math import floor, log10, pi
+
 
 replacements = {"²":"**2", "³":"**3", "⁴":"**4", 
                 "⁵": "**5","⁶":"**6", "⁷": "**7", 
@@ -24,8 +25,25 @@ def replace_special_characters(replacements, inp_str):
     return inp_str
 
 
-def EvaluateAnywhere(input_text, eq_d):
-    # Clean up input text
+
+def SigFigs(x: float, precision: int):
+    """
+    Rounds an input number to a count of significant figures
+    - x - the number to be rounded
+    - precision (integer) - the number of significant figures
+    Returns:
+    - float
+    """
+
+    x = float(x)
+    precision = int(precision)
+    if x == 0:
+        return 0
+    return round(x, -int(floor(log10(abs(x)))) + (precision - 1))
+
+
+def Evaluate(input_text, eq_d):
+    #1.0) CLEAN THE INPUT TEXT
 
     #remove whitespaces and newlines
     input_text = input_text.strip()
@@ -44,16 +62,15 @@ def EvaluateAnywhere(input_text, eq_d):
 
     # CLEANING FINISHED
 
-    # Check to see if the input text is a preDefined equation
-    # if yes, type it.
+    #2.0) Check to see if the input text is the word "Directory"
     if input_text == "Directory":
-        #for item in equation_dictionary.keys():
+        # If yes, print all items in the dictionary
         for item in eq_d.keys():
             keyboard.press(Key.enter)
             keyboard.release(Key.enter)
             keyboard.type(item)
 
-    #elif input_text in equation_dictionary.keys():
+    #3.0) Check to see if the input text is a preDefined dictionary key
     elif input_text in eq_d.keys():
 
         # if yes, press return, and type out the dictionary value
@@ -67,15 +84,16 @@ def EvaluateAnywhere(input_text, eq_d):
         except:
             pass
 
-    # If it is the name of a predefined equation, it is an equation to evaluate
-    # so evaluate it
+    #4.0) If none of the above, try to evaluate the text with asteval
     else:
-        # use asteval to evaluate the expression
         try:
+            # evaluate the expression with asteval
             type_output = aeval(cleaned_input_text)
+
             # output to 4 sig figs
-            type_output = sig_figs(type_output, 4)
-            #Get Last Expression
+            type_output = SigFigs(type_output, 4)
+
+            #Get Last line in the Expression
             last_line = cleaned_input_text.splitlines()[-1]
             # If there are multiple variables
             if ',' in last_line:
