@@ -3,8 +3,6 @@ eval
 
  = remove whitespaces on each line
  - change keys (no F12)
- - rename spreadsheet
- - 1 spreadsheet for all functions
  - Make a latex image of the equation
  - add output units
  - replace  x ≤ y with min(x,y)
@@ -22,8 +20,7 @@ eval
 
  - find someway to transmute "print() to "pyautogui.typewrite()"
  - Lookup Similarly spelled words
- - strip "=" signs
- - update "ignored text" to show []s
+
  - connect "ignored text" to hardcoded input list
  - The in⁴ issue comes from ordering of what gets deleted. "in" gets deleted,
    and then there is only "⁴" which does not get deleted.  this can perhaps
@@ -37,7 +34,6 @@ eval
  - Add Credits and a recipe for goetta
  - search for lower()
  
- - have the program import both the google sheet and the excel file
  - Check the googlesheet / excel file every 5mins for updates
  - Reload Function in folder 
  - everything to left of "=" gets:
@@ -47,11 +43,11 @@ eval
     so that users can have commas and spaces
     
 Lookup
- - Swap the first two lines
+
  - Better table printout (make sur-e all items have same "width" of characters
  - Error handling when user input fallacious WHERE statement
  - Several Example  Lookup
- - Match Tablename in Lookup 'From'
+
  - Lookups for:
     - Rebar
     - Rebar Hooks
@@ -61,10 +57,9 @@ Lookup
  - No newline when typing single AISC Value
  - Graphical comparator for two-column output
  
- - work smarter not harder, or better yet, not a
 Snip to text
 Overall
-- rename program
+
 - get it on github
 
 db, Bolt, A490, 1/2, N,

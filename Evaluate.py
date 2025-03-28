@@ -59,6 +59,14 @@ def Evaluate(input_text, eq_d):
     #Replace Special Chars:
     cleaned_input_text = replace_special_characters(replacements, cleaned_input_text)
 
+    #Check to see if there's an "=" in the last line
+
+    has_eqs = False
+    if cleaned_input_text[-1] == "=":
+    #     print("hello")
+        has_eqs = True
+        cleaned_input_text = cleaned_input_text[:-1]
+
 
     # CLEANING FINISHED
 
@@ -93,36 +101,12 @@ def Evaluate(input_text, eq_d):
             # output to 4 sig figs
             type_output = SigFigs(type_output, 4)
 
-            #Get Last line in the Expression
-            last_line = cleaned_input_text.splitlines()[-1]
-            # If there are multiple variables
-            if ',' in last_line:
-                result = tuple(item.strip() for item in last_line.split(','))
+            type_output = str(type_output)
 
 
-            multi_result = type(type_output) == tuple
-
-            # If there are multiple answers
-            if multi_result:
-                # Grab the variables from the LAST LINE and make them into a tuple
-                variables = tuple(item.strip() for item in last_line.split(','))
-
-                #delete the multi-line
-                pyautogui.keyDown('shift')
-                pyautogui.press('home')
-                pyautogui.keyUp('shift')
-                # iterate through the variables tuple and results tuple
-                # and print
-                for i in range(len(type_output)):
-                    result = str(type_output[i])
-                    keyboard.type(variables[i]+" = " + result)
-                    # new line after printing
-                    pyautogui.press('enter')
-
-
-            # if there's just one answer
+            if has_eqs == True:
+                keyboard.type(type_output)
             else:
-                type_output = str(type_output)
                 keyboard.type(" = "+type_output)
         except:
             pass
