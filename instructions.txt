@@ -15,3 +15,5 @@ git push
 
 # pyinstaller --onefile --noconsole --exclude-module tkinter --icon=WF.ico main.py
 # pyinstaller --onefile --noconsole --icon=WF.ico main.py
+
+pyinstaller --onefile --noconsole --exclude-module tkinter  main.py

@@ -1,8 +1,12 @@
-to do:
+'''to do:
+
+Go to location in drive
+note
 eval
 
- = remove whitespaces on each line
- - change keys (no F12)
+
+
+
  - Make a latex image of the equation
  - add output units
  - replace  x ≤ y with min(x,y)
@@ -18,9 +22,10 @@ eval
     replace the second "|" with ")"
     evaluate
 
- - find someway to transmute "print() to "pyautogui.typewrite()"
+ - find someway to parse "print() to "pyautogui.typewrite()"
  - Lookup Similarly spelled words
-
+ - strip "=" signs
+ - update "ignored text" to show []s
  - connect "ignored text" to hardcoded input list
  - The in⁴ issue comes from ordering of what gets deleted. "in" gets deleted,
    and then there is only "⁴" which does not get deleted.  this can perhaps
@@ -34,6 +39,7 @@ eval
  - Add Credits and a recipe for goetta
  - search for lower()
  
+ - have the program import both the google sheet and the excel file
  - Check the googlesheet / excel file every 5mins for updates
  - Reload Function in folder 
  - everything to left of "=" gets:
@@ -41,13 +47,28 @@ eval
     - commas become underscore
     - program scans subsequent inputs and replaces all
     so that users can have commas and spaces
-    
+Tracer
+ - HOld down F7
+ - Click in sequence
+ - Let Go of F7
+ - On the keyboard is a drawing of whatever you just traced
+ - Why not just use a screenshot?
+ - in F7 Mode, there is a screen overlay
+ 
 Lookup
-
- - Better table printout (make sur-e all items have same "width" of characters
+ - HSSRNDs have weird names
+ - autocleanup inputs
+ COLUMNS: Label, Type, W, Ix
+ WHERE: Label LIKE '%HSS6X4%'
+ ORDER BY: W ASC
+ LIMIT: 5
+ - Infill Fy, Fu values in aisc
+ - Print all valid categories for a given type
+ - Swap the first two lines
+ - Better table printout (make sure all items have same "width" of characters
  - Error handling when user input fallacious WHERE statement
  - Several Example  Lookup
-
+ - Match Tablename in Lookup 'From'
  - Lookups for:
     - Rebar
     - Rebar Hooks
@@ -57,9 +78,10 @@ Lookup
  - No newline when typing single AISC Value
  - Graphical comparator for two-column output
  
+ - work smarter not harder, or better yet, not at all
 Snip to text
 Overall
-
+- rename program
 - get it on github
 
 db, Bolt, A490, 1/2, N,
@@ -71,4 +93,16 @@ db, Bolt, A490, 1/2, N,
 Rebar, #4'
 
 phi reverser
-"Settings"
+ multiclick draw    
+Key  -> Input format (
+
+Give all functions camelcase names
+
+What Can I do with shift-F.12
+How about hold-down and click?
+Splash SCreen when activating
+Splash screen when deactivated
+some means of deactivation
+"Call Thomas"
+Credits
+'''

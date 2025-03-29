@@ -5,7 +5,7 @@ import re
 from pynput.keyboard import Controller, Key
 keyboard = Controller()
 from math import floor, log10, pi
-
+from SigFigs import sig_figs
 
 replacements = {"²":"**2", "³":"**3", "⁴":"**4", 
                 "⁵": "**5","⁶":"**6", "⁷": "**7", 
@@ -99,7 +99,7 @@ def Evaluate(input_text, eq_d):
             type_output = aeval(cleaned_input_text)
 
             # output to 4 sig figs
-            type_output = SigFigs(type_output, 4)
+            type_output = sig_figs(type_output, 4)
 
             type_output = str(type_output)
 
